@@ -2,7 +2,7 @@ import pygame
 from pygame.examples.mask import Sprite
 from Game import Game
 from pygame.constants import K_SPACE, K_a, K_e, K_LEFT, K_d
-from Projectile import Projectile
+
 pygame.init()
 
 
@@ -26,9 +26,12 @@ while running :
     #set player
     screen.blit(game.player.image, game.player.rect)
     
-    #set plays projectile
+    #set player projectile
     game.player.right_projectile.draw(screen)
     game.player.left_projectile.draw(screen)
+    
+    #set Monsters
+    game.all_monsters.draw(screen)
     
     #move player
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
