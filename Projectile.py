@@ -33,6 +33,7 @@ class Projectile(pygame.sprite.Sprite):
         #check if projectile hit a monster
         if self.player.game.checkCollision(self, self.player.game.all_monsters):
             self.remove(True)
+
             
     def moveLeft(self):
         

@@ -26,4 +26,11 @@ class Game:
         #check collition between two entities
         return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
         
-
+    def die(self):
+        
+        for monster in self.all_monsters:
+                monster.remove()
+            
+            
+            
+            

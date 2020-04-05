@@ -23,3 +23,8 @@ class Monster(pygame.sprite.Sprite):
         #check if monster are not in collision with any Player
         if not self.game.checkCollision(self, self.game.all_players):
             self.rect.x-=self.velocity
+            
+    def die(self):
+        
+        if self.game.checkCollision(self, self.game.player.right_projectile):
+            self.game.all_monsters.remove(self)

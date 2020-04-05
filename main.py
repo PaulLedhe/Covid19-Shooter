@@ -7,7 +7,7 @@ pygame.init()
 
 
 #window
-pygame.display.set_caption("covid-19 survivor")
+pygame.display.set_caption("covid-19 Shooter")
 screen=pygame.display.set_mode((800, 480))
 
 #load background
@@ -42,6 +42,7 @@ while running :
     #move Monsters
     for monster in game.all_monsters:
         monster.forward()
+        monster.die()
         
     #launch projectile
         #to the right side
@@ -77,7 +78,7 @@ while running :
                 
         elif event.type == pygame.KEYUP:
             game.pressed[event.key]= False
-            
+   
         
         
         
