@@ -30,6 +30,10 @@ class Projectile(pygame.sprite.Sprite):
         if self.rect.x > screen :
             self.remove(True)
             
+        #check if projectile hit a monster
+        if self.player.game.checkCollision(self, self.player.game.all_monsters):
+            self.remove(True)
+            
     def moveLeft(self):
         
         self.image=pygame.image.load('assets/projectile/projectileL.png')
@@ -37,6 +41,9 @@ class Projectile(pygame.sprite.Sprite):
         self.rect.x -= self.velocity
         
         if self.rect.x < 0 :
+            self.remove(False)
+        
+        if self.player.game.checkCollision(self, self.player.game.all_monsters):
             self.remove(False)
             
         

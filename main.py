@@ -14,7 +14,7 @@ screen=pygame.display.set_mode((800, 480))
 background=pygame.image.load('assets/hospital_room4.jpg')
 
 #load game
-game=Game()
+game=Game(screen.get_width(),screen.get_height())
 
 #loop which keep the window on (while running is True)
 running=True
@@ -38,6 +38,10 @@ while running :
         game.player.moveRight()
     elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x > 0:
         game.player.moveLeft()
+        
+    #move Monsters
+    for monster in game.all_monsters:
+        monster.forward()
         
     #launch projectile
         #to the right side
